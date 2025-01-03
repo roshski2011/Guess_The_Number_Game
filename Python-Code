@@ -1,0 +1,40 @@
+print("\nHello and welcome to the game\n")
+def player_input(message):
+  return input(message)
+
+
+print("\nThink of a number from 1-100. you have 5 seconds!\n")
+
+import time
+time.sleep(5)
+
+highest_number = 100
+lowest_number = 1
+
+
+
+while True:
+  import random
+  computer_guess = random.randint(lowest_number, highest_number)
+  print(f"\nis your number {computer_guess} ?\n")
+  feedback = input("\nEnter 'up' if the number is higher, 'down' if lower, or correct\n")
+
+  if feedback == "up":
+    
+    lowest_number = computer_guess + 1
+  
+  elif feedback == "down":
+    
+    highest_number = computer_guess - 1
+  
+  elif feedback == "correct":
+    print ("\n~computer-smiley-face *bleep* *bloop* :-)\n")
+    break
+    
+  else:
+    print("\ninvalid input. plese enter 'up', 'down', or 'correct'\n")
+
+  if lowest_number > highest_number:
+    print ("\ni'm bamboozled")
+    break
+  
