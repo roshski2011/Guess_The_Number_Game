@@ -1,0 +1,42 @@
+print("\nHello and welcome to the game\n") #intro to game
+def player_input(message): 
+  return input(message)
+
+
+print("\nThink of a number from 1-100. you have 5 seconds!\n") 
+#here there is no input
+import time
+time.sleep(5)
+#waiting five seconds for you to think
+highest_number = 100 #defining highest number
+lowest_number = 1 #defining lowest number
+#the computer will then ONLY think of number between lowest_number and highest_number
+
+
+while True: #this allows the computer to loop the code beneath until it guesses the correct answer
+  import random 
+  computer_guess = random.randint(lowest_number, highest_number) #thinks of a random number between 1-100
+  print(f"\nis your number {computer_guess} ?\n")
+  feedback = input("\nEnter 'up' if the number is higher, 'down' if lower, or correct\n")
+#allows the player to input if their number is higher of lower than their guess, or even correct
+  if feedback == "up":
+    
+    lowest_number = computer_guess + 1
+    #the computer changes their lowest_number to the previous guess plus one, since it isn't below that guess
+  
+  elif feedback == "down":
+    
+    highest_number = computer_guess - 1
+    #the computer changes their highest_number to the previous guess minus one, since it isn't above that guess
+  
+  elif feedback == "correct":
+    print ("\n~computer-smiley-face *bleep* *bloop* :-)\n")
+    break #this breaks the While true loop, since it has guessed th answer
+    
+  else:
+    print("\ninvalid input. plese enter 'up', 'down', or 'correct'\n")
+    #this is if the user didn't input one of these three responses
+  if lowest_number > highest_number:
+    print ("\ni'm bamboozled") 
+    break #This is if the person faked their guess and their number is actually one the computer blocked out
+  
